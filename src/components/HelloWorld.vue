@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="hello">
-     <h1>{{ msg }}</h1>
-     <h2>Essential Links</h2>
+    <div class="edit">
+     <span class="adminedit">{{ adminedit }}</span>
+     <span class="useredit">{{ useredit }}</span>
    </div>
    <div id="calendar-list">
      <calendar-list></calendar-list>
@@ -20,10 +20,11 @@ export default {
   components: {
     CalendarList
   },
+
   data () {
     return {
-
-      msg: 'Welcome to prototyape-app'
+      adminedit: 'Admin edit',
+      useredit: 'User edit'
     }
   }
 }
@@ -31,6 +32,33 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.edit {
+  float: right;
+}
+
+.adminedit {
+  padding: 7px;
+  margin-right: 5px;
+  color: #6091d3;
+  border: solid 3px #6091d3;
+  border-radius: 10px;
+}
+
+.useredit {
+  padding: 7px;
+  margin-right: 10px;
+  color: #4ec4d3;
+  border: solid 3px #4ec4d3;
+  border-radius: 10px;
+}
+
+.calendar-list {
+  height: 50%;
+  clear: right;
+  margin: 20px;
+  padding: 20px;
+}
+
 h1, h2 {
   font-weight: normal;
 }
