@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       adminedit: 'Admin edit',
-      useredit: 'User edit'
+      useredit: 'User editting'
     }
   }
 }
