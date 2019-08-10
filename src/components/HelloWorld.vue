@@ -4,6 +4,7 @@
      <span class="adminedit">{{ adminedit }}</span>
      <span class="useredit">{{ useredit }}</span>
    </div>
+   <button v-on:click="api">API</button>
    <div id="calendar-list">
      <calendar-list></calendar-list>
      <!-- </calendar-list> -->
@@ -13,6 +14,7 @@
 
 <script>
 import CalendarList from './CalendarList'
+import axios from 'axios'
 
 export default {
   name: 'HelloWorld',
@@ -24,8 +26,18 @@ export default {
   data () {
     return {
       adminedit: 'Admin edit',
-      useredit: 'User edit'
+      useredit: 'User edit',
+      apiResults: ''
     }
+  },
+
+  methods: {
+      api: function () {
+        axios.get("http://192.168.95.101:3000/api1/ABD")
+        .then(response =>
+          console.log("äpisato"),
+          this.apiResults = response.headers.host
+      )}
   }
 }
 </script>
