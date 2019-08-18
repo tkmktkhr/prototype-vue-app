@@ -2,6 +2,15 @@
 
 > A Vue.js project
 
+### Caution
+When npm install, error occurs. so use the bellow command until this is solved.
+```
+npm install phantomjs-prebuilt@2.1.16 --ignore-scripts
+```
+
+Reference
+https://github.com/openbmc/openbmc/issues/2922
+
 ## Build Setup
 
 ``` bash
