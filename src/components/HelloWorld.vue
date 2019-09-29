@@ -6,6 +6,7 @@
    </div>
    <button v-on:click="getapi">GET</button>
    <button v-on:click="postapi">POST</button>
+   <button v-on:click="postapi2">POST</button>
    <div id="calendar-list">
      <calendar-list></calendar-list>
      <!-- </calendar-list> -->
@@ -52,7 +53,7 @@ export default {
           url: "http://192.168.95.101:3000/api1/post1/123",
           // params: {'user_id': 123},
           // headers: {'Content-Type': 'application/json'},
-          headers: {'X-Requested-With': 'XMLHttpRequest'},
+          // headers: {'X-Requested-With': 'XMLHttpRequest', 'Access-Control-Allow-Origin': '*'},
           data: {
             "collection_name" : "prototype",
             "event_time" : {
@@ -63,6 +64,19 @@ export default {
         })
         .then(function (response) {
           console.log("äpisato")
+          console.log(response)
+        }
+      )},
+      postapi2: function () {
+        axios.post('http://192.168.95.101:3000/api1/post1/123', {
+          "collection_name" : "prototype",
+          "event_time" : {
+            "start_time" : "10:00",
+            "end_time" : "11:00"
+          }
+        })
+        .then(function (response) {
+          console.log("postapi2")
           console.log(response)
         }
       )}
