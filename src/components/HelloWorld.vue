@@ -11,18 +11,23 @@
      <calendar-list></calendar-list>
      <!-- </calendar-list> -->
    </div>
+   <div id="event-list">
+     <event-list></event-list>
+   </div>
  </div>
 </template>
 
 <script>
 import CalendarList from './CalendarList'
+import EventList from './EventList'
 import axios from 'axios'
 
 export default {
   name: 'HelloWorld',
 
   components: {
-    CalendarList
+    CalendarList,
+    EventList
   },
 
   data () {
@@ -37,7 +42,7 @@ export default {
       // api: function () {
       //   axios.get("http://192.168.95.101:3000/api1/ABD")
       //   .then(response =>
-      //     console.log("äpisato"),
+      //     console.log("abcdefghijk"),
       //     this.apiResults = response.headers.host
       // )}
       getapi: function () {
