@@ -8,6 +8,21 @@
         <option value='event3'>Event3</option>
       </select>
     </div>
+    <!-- Modal -->
+    <div id="body">
+      <div id="open" v-on:click="modalOpen()">
+        button
+      </div>
+      <div id="mask" v-bind:class="modalShow" v-show="this.showModal">
+        <section id="modal">
+          <p>takamuku</p>
+          <div id="close" v-on:click="modalClose()">
+            Colse
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Modal -->
   </div>
 </template>
 
@@ -19,73 +34,80 @@ export default {
     return {
       showModal: false
     }
+  },
+  computed: {
+    modalShow: function () {
+      console.log(this.showModal)
+      return (this.showModal ? "" : "hidden" )
+     }
+  },
+  methods: {
+    modalOpen: function () {
+      console.log(this.showModal)
+      this.showModal = true
+      console.log(this.showModal)
+    },
+    modalClose: function () {
+      console.log(this.showModal)
+      this.showModal = false
+      console.log(this.showModal)
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.modal-mask {
+body {
+  font-size: 16px;
+}
+
+#open,
+#close {
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px;
+  margin: 16px auto 0;
+  background: #4caf50;
+  color: white;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.4);
   position: fixed;
-  z-index: 9998;
   top: 0;
+  bottom: 0;
+  right: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  display: table;
-  transition: opacity .3s ease;
+  z-index: 1;
 }
 
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
+#modal {
+  background: #fff;
+  color: #555;
   width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+  padding: 40px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 2;
 }
 
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
+#modal p {
+  margin: 0 0 20px;
 }
 
-.modal-body {
-  margin: 20px 0;
+#mask.hidden {
+  display: none;
 }
 
-.modal-default-button {
-  float: right;
-}
-
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+#modal.hidden {
+  transform: translate(0, -500px);
 }
 </style>
