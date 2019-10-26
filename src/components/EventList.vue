@@ -37,20 +37,15 @@ export default {
   },
   computed: {
     modalShow: function () {
-      console.log(this.showModal)
       return (this.showModal ? "" : "hidden" )
      }
   },
   methods: {
     modalOpen: function () {
-      console.log(this.showModal)
       this.showModal = true
-      console.log(this.showModal)
     },
     modalClose: function () {
-      console.log(this.showModal)
       this.showModal = false
-      console.log(this.showModal)
     }
   }
 }
