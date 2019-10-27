@@ -8,18 +8,25 @@
         <option value='event3'>Event3</option>
       </select>
     </div>
-    <input type="number" v-on:change="startTime = $event.target.value" v-bind:value="startTime" min="0">
+    <p>開始時刻</p>
+    <input type="number" v-on:change="startTimeOclock = $event.target.value" v-bind:value="startTimeOclock" min="9" max="18">:<input type="number" v-on:change="startTimeMinute = $event.target.value" v-bind:value="startTimeMinute" min="0" max="59">
+    <p>終了時刻</p>
+    <input type="number" v-on:change="endTimeOclock = $event.target.value" v-bind:value="endTimeOclock" min="9" max="18">:<input type="number" v-on:change="endTimeMinute = $event.target.value" v-bind:value="endTimeMinute" min="0" max="59">
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'adminedit',
+  name: 'AdminEdit',
 
   data () {
     return {
-      startTime: '',
-      endTime: ''
+      startTimeOclock: '',
+      startTimeMinute: '',
+      endTimeOclock: '',
+      endTimeMinute: ''
     }
   },
 
