@@ -2,16 +2,18 @@
   <div class="admin">
     <p>ADMIN</p>
     <div>
-      <select name='event-name'>
-        <option value='event1'>Event1</option>
-        <option value='event2'>Event2</option>
-        <option value='event3'>Event3</option>
+      <p>イベント名選択</p>
+      <select name='event-name' v-model="eventName">
+        <option value='prototype'>prototype</option>
+        <option value='prototype2'>prototype2</option>
+        <option value='test'>test</option>
       </select>
+      <p>開始時刻</p>
+      <input type="number" v-on:change="startTimeOclock = $event.target.value" v-bind:value="startTimeOclock" min="9" max="18">:<input type="number" v-on:change="startTimeMinute = $event.target.value" v-bind:value="startTimeMinute" min="0" max="59">
+      <p>終了時刻</p>
+      <input type="number" v-on:change="endTimeOclock = $event.target.value" v-bind:value="endTimeOclock" min="9" max="18">:<input type="number" v-on:change="endTimeMinute = $event.target.value" v-bind:value="endTimeMinute" min="0" max="59">
     </div>
-    <p>開始時刻</p>
-    <input type="number" v-on:change="startTimeOclock = $event.target.value" v-bind:value="startTimeOclock" min="9" max="18">:<input type="number" v-on:change="startTimeMinute = $event.target.value" v-bind:value="startTimeMinute" min="0" max="59">
-    <p>終了時刻</p>
-    <input type="number" v-on:change="endTimeOclock = $event.target.value" v-bind:value="endTimeOclock" min="9" max="18">:<input type="number" v-on:change="endTimeMinute = $event.target.value" v-bind:value="endTimeMinute" min="0" max="59">
+    <button v-on:click="registerEvent">イベント登録</button>
   </div>
 </template>
 
@@ -23,6 +25,7 @@ export default {
 
   data () {
     return {
+      eventName: '',
       startTimeOclock: '',
       startTimeMinute: '',
       endTimeOclock: '',
@@ -32,6 +35,25 @@ export default {
 
   computed: {
 
+  },
+
+  methods: {
+    registerEvent: function () {
+      axios.post('http://192.168.95.101:3000/api1/post1/user1', {
+        "collection_name": this.eventName,
+        "event_time" : {
+          "start_time" : this.startTimeOclock + ":" + this.startTimeMinute,
+          "end_time" : this.endTimeOclock + ":" + this.endTimeMinute
+        }
+      })
+      .then(function (response) {
+
+      })
+    },
+
+    // eventName: function () {
+    //   console.log('sss')
+    // }
   }
 }
 </script>
