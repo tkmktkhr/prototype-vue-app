@@ -1,12 +1,12 @@
 <template>
   <div class="admin">
-    <p>ADMIN</p>
+    <p>ADMINユーザイベント登録ページ</p>
     <div>
       <p>イベント名選択</p>
       <select name='event-name' v-model="eventName">
-        <option value='prototype'>prototype</option>
-        <option value='prototype2'>prototype2</option>
-        <option value='test'>test</option>
+        <option value='prototype'>イベント名prototype</option>
+        <option value='prototype2'>イベント名prototype2</option>
+        <option value='test'>イベント名test</option>
       </select>
       <p>開始時刻</p>
       <input type="number" v-on:change="startTimeOclock = $event.target.value" v-bind:value="startTimeOclock" min="9" max="18">:<input type="number" v-on:change="startTimeMinute = $event.target.value" v-bind:value="startTimeMinute" min="0" max="59">
