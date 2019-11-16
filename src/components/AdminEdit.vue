@@ -40,16 +40,16 @@ export default {
   methods: {
     registerEvent: function () {
       axios.post('http://192.168.95.101:3000/api1/post1/user1', {
-        "collection_name": this.eventName,
-        "event_time" : {
-          "start_time" : this.startTimeOclock + ":" + this.startTimeMinute,
-          "end_time" : this.endTimeOclock + ":" + this.endTimeMinute
+        collection_name: this.eventName,
+        event_time: {
+          start_time: this.startTimeOclock + ':' + this.startTimeMinute,
+          end_time: this.endTimeOclock + ':' + this.endTimeMinute
         }
       })
-      .then(function (response) {
+        .then(function (response) {
 
-      })
-    },
+        })
+    }
 
     // eventName: function () {
     //   console.log('sss')

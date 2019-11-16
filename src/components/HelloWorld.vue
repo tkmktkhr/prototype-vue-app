@@ -39,52 +39,55 @@ export default {
   },
 
   methods: {
-      // api: function () {
-      //   axios.get("http://192.168.95.101:3000/api1/ABD")
-      //   .then(response =>
-      //     console.log("abcdefghijk"),
-      //     this.apiResults = response.headers.host
-      // )}
-      getapi: function () {
-        axios.get("http://192.168.95.101:3000/api1/ABD")
+    // api: function () {
+    //   axios.get("http://192.168.95.101:3000/api1/ABD")
+    //   .then(response =>
+    //     console.log("abcdefghijk"),
+    //     this.apiResults = response.headers.host
+    // )}
+    getapi: function () {
+      axios.get('http://192.168.95.101:3000/api1/ABD')
         .then(function (response) {
-          console.log("äpisato")
+          console.log('äpisato')
           console.log(response)
         }
-      )},
-      postapi: function () {
-        axios({
-          method: 'post',
-          url: "http://192.168.95.101:3000/api1/post1/123",
-          // params: {'user_id': 123},
-          // headers: {'Content-Type': 'application/json'},
-          // headers: {'X-Requested-With': 'XMLHttpRequest', 'Access-Control-Allow-Origin': '*'},
-          data: {
-            "collection_name" : "prototype",
-            "event_time" : {
-              "start_time" : "10:00",
-              "end_time" : "11:00"
-            }
+        )
+    },
+    postapi: function () {
+      axios({
+        method: 'post',
+        url: 'http://192.168.95.101:3000/api1/post1/123',
+        // params: {'user_id': 123},
+        // headers: {'Content-Type': 'application/json'},
+        // headers: {'X-Requested-With': 'XMLHttpRequest', 'Access-Control-Allow-Origin': '*'},
+        data: {
+          collection_name: 'prototype',
+          event_time: {
+            start_time: '10:00',
+            end_time: '11:00'
           }
-        })
+        }
+      })
         .then(function (response) {
-          console.log("äpisato")
+          console.log('äpisato')
           console.log(response)
         }
-      )},
-      postapi2: function () {
-        axios.post('http://192.168.95.101:3000/api1/post1/123', {
-          "collection_name" : "prototype",
-          "event_time" : {
-            "start_time" : "10:00",
-            "end_time" : "11:00"
-          }
-        })
+        )
+    },
+    postapi2: function () {
+      axios.post('http://192.168.95.101:3000/api1/post1/123', {
+        collection_name: 'prototype',
+        event_time: {
+          start_time: '10:00',
+          end_time: '11:00'
+        }
+      })
         .then(function (response) {
-          console.log("postapi2")
+          console.log('postapi2')
           console.log(response)
         }
-      )}
+        )
+    }
   }
 }
 </script>
