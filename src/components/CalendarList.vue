@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import DatePicker from 'vuejs-datepicker'
+
 export default {
   name: 'calendar-list'
 }
