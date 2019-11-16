@@ -1,12 +1,19 @@
 <template>
   <div class="calendar-list">
     calendar-list
+    <date-picker placeholder="Select Date"></date-picker>
   </div>
 </template>
 
 <script>
+import DatePicker from 'vuejs-datepicker'
+
 export default {
-  name: 'calendar-list'
+  name: 'calendar-list',
+
+  components: {
+    DatePicker
+  }
 }
 </script>
 

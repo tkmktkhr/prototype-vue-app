@@ -37,8 +37,8 @@ export default {
   },
   computed: {
     modalShow: function () {
-      return (this.showModal ? "" : "hidden" )
-     }
+      return (this.showModal ? '' : 'hidden')
+    }
   },
   methods: {
     modalOpen: function () {
