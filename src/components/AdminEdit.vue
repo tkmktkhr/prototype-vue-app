@@ -2,6 +2,10 @@
   <div class="admin">
     <p>ADMINユーザイベント登録ページ</p>
     <div>
+      <div id="calendar-list">
+        <calendar-list></calendar-list>
+        <!-- </calendar-list> -->
+      </div>
       <p>イベント名選択</p>
       <select name='event-name' v-model="eventName">
         <option value='prototype'>イベント名prototype</option>
@@ -18,10 +22,15 @@
 </template>
 
 <script>
+import CalendarList from './CalendarList'
 import axios from 'axios'
 
 export default {
   name: 'AdminEdit',
+
+ components: {
+   CalendarList
+ },
 
   data () {
     return {
